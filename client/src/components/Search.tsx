@@ -2,13 +2,10 @@ import { useRef, useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router";
 import { TypeAnimation } from "react-type-animation";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import useMobile from "../hooks/useMobile";
 import { useSelector, useDispatch } from "react-redux";
 import { setFilteredProducts } from "../features/product/productSlice";
 
 const Search = () => {
-  const [isMobile] = useMobile();
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState(""); // Search input state
   const inputRef = useRef<HTMLInputElement | null>(null);
