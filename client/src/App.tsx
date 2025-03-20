@@ -7,7 +7,7 @@ const App = () => {
 const navigate = useNavigate()
   useEffect(() => {
     navigate("/product")
-  })
+  },[])
   return (
     <div>
       <Header/>

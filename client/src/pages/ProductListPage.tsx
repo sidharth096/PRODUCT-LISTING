@@ -8,13 +8,14 @@ import {
 import api from "../common/api";
 import Axios from "../utils/Axios";
 import { FaStar } from "react-icons/fa6";
+import { useNavigate } from "react-router";
 
 const ProductListPage: React.FC = () => {
   const filteredProducts = useSelector(
     (state: RootState) => state.product.filteredProducts
   );
   const dispatch = useDispatch<AppDispatch>();
-
+ const navigate = useNavigate()
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [loading, setLoading] = useState<boolean>(false);
@@ -140,8 +141,9 @@ const ProductListPage: React.FC = () => {
               {currentItems.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white rounded-lg shadow-lg p-4 flex flex-col items-center border border-secondary-extra-light hover:border-prirmary-light transition-shadow duration-300"
-                >
+                  role="button"
+                  className="bg-white rounded-lg shadow-lg p-4 flex flex-col items-center border border-secondary-extra-light cursor-pointer hover:border-prirmary-light transition-shadow duration-300"
+                  onClick={() => navigate(`/product/${product.id}`)}  >
                   <img
                     src={product.image}
                     alt={product.title}

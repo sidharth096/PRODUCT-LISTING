@@ -12,6 +12,10 @@ const api = {
   fetchProductByCategory:{
     url: "/products/category/:category",
     method: "get",
+  },
+  fetchProductById:{
+    url: "/products",
+    method: "get",
   }
 };
 

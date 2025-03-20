@@ -7,7 +7,6 @@ import useMobile from "../hooks/useMobile";
 import { useSelector, useDispatch } from "react-redux";
 import { setFilteredProducts } from "../features/product/productSlice";
 
-
 const Search = () => {
   const [isMobile] = useMobile();
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -17,7 +16,9 @@ const Search = () => {
 
   // Get all products from Redux
   const products = useSelector((state: any) => state.product.products || []);
-  const filteredProducts = useSelector((state: any) => state.product.filteredProducts);
+  const filteredProducts = useSelector(
+    (state: any) => state.product.filteredProducts
+  );
 
   // Focus on input when search is activated
   const handleFocus = () => {
@@ -36,7 +37,6 @@ const Search = () => {
       dispatch(setFilteredProducts(products)); // Restore all products
     }
   }, [searchTerm, products, dispatch]);
-  
 
   return (
     <div
@@ -44,23 +44,17 @@ const Search = () => {
       onClick={handleFocus}
     >
       <div>
-        {isMobile ? (
-          <Link
-            to="/"
-            className="flex justify-center items-center h-full p-2 m-1 group-focus-within:text-primary-dark bg-white rounded-full"
-          >
-            <IoMdArrowRoundBack size={22} />
-          </Link>
-        ) : (
-          <button className="flex justify-center items-center h-full p-3 group-focus-within:text-primary-dark">
-            <FaSearch size={22} />
-          </button>
-        )}
+        <button className="flex justify-center items-center h-full p-3 group-focus-within:text-primary-dark">
+          <FaSearch size={22} />
+        </button>
       </div>
 
       <div className="w-full h-full">
         {!isSearchActive ? (
-          <button className="w-full h-full flex items-center" onClick={handleFocus}>
+          <button
+            className="w-full h-full flex items-center"
+            onClick={handleFocus}
+          >
             <TypeAnimation
               sequence={[
                 'Search "" ',
