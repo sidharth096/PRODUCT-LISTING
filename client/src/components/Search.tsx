@@ -54,17 +54,17 @@ const Search = () => {
           >
             <TypeAnimation
               sequence={[
-                'Search "" ',
+                'Search "watch" ',
                 1000,
-                'Search "bread" ',
+                'Search "tshirt" ',
                 1000,
-                'Search "sugar" ',
+                'Search "shirt" ',
                 1000,
-                'Search "biscuit" ',
+                'Search "jeans" ',
                 1000,
-                'Search "chocolate" ',
+                'Search "ring" ',
                 1000,
-                'Search "paneer" ',
+                'Search "bag" ',
               ]}
               wrapper="span"
               speed={50}
